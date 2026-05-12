@@ -81,24 +81,16 @@ form.addEventListener('submit', (e) => {
   }, 800);
 });
 
-// ── Hero blocks tilt on mouse move (desktop) ──
-const blocks = document.querySelectorAll('.block');
+// ── Hero logo subtle float on mouse move ──
+const logoImg = document.querySelector('.hero-logo-img');
 document.querySelector('#hero')?.addEventListener('mousemove', (e) => {
+  if (!logoImg) return;
   const rect = e.currentTarget.getBoundingClientRect();
-  const cx   = rect.left + rect.width  / 2;
-  const cy   = rect.top  + rect.height / 2;
-  const dx   = (e.clientX - cx) / rect.width;
-  const dy   = (e.clientY - cy) / rect.height;
-
-  blocks.forEach((block, i) => {
-    const base = [-4, 2, -5, 3, -2][i] ?? 0;
-    block.style.transform = `rotate(${base + dx * 4}deg) translateY(${dy * -6}px)`;
-  });
+  const dx = (e.clientX - rect.left - rect.width  / 2) / rect.width;
+  const dy = (e.clientY - rect.top  - rect.height / 2) / rect.height;
+  logoImg.style.transform = `translate(${dx * 6}px, ${dy * 4}px)`;
 });
 
 document.querySelector('#hero')?.addEventListener('mouseleave', () => {
-  const baseRotations = [-4, 2, -5, 3, -2];
-  blocks.forEach((block, i) => {
-    block.style.transform = `rotate(${baseRotations[i] ?? 0}deg)`;
-  });
+  if (logoImg) logoImg.style.transform = 'translate(0,0)';
 });
