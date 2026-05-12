@@ -8,9 +8,9 @@
   <meta property="og:title" content="SPÄTi am Delft – 24/7 Kiosk Emden">
   <meta property="og:description" content="Snack Attack. Kioskkultur. Nachtmeile. Immer für dich da.">
   <meta property="og:type" content="website">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Bunny Fonts: DSGVO-konform (europäischer CDN, keine Datenweitergabe an USA) -->
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=playfair-display:700,900|fredoka-one:400|nunito:400,600,700,800,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -220,6 +220,7 @@
           <label for="message">Deine Nachricht</label>
           <textarea id="message" name="message" rows="5" placeholder="Welche Produkte fehlen noch? Was läuft super? Wir hören zu!" required></textarea>
         </div>
+        <p class="form-privacy">Mit dem Absenden stimmst du der Verarbeitung deiner Daten zur Bearbeitung deiner Anfrage zu. Weitere Infos in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
         <button type="submit" class="btn-primary btn-submit">Abschicken 🚀</button>
         <p class="form-success" id="formSuccess" role="alert">Danke für dein Feedback! Wir haben's bekommen. 🙏</p>
         <p class="form-error" id="formError" role="alert">Bitte füll alle Pflichtfelder aus.</p>
@@ -236,8 +237,8 @@
       </div>
       <p class="footer-address">Neutorstraße 2 · 26723 Emden · 24/7</p>
       <nav class="footer-links" aria-label="Footer Navigation">
-        <a href="#impressum">Impressum</a>
-        <a href="#datenschutz">Datenschutz</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
         <a href="https://www.instagram.com/spaeti_amdelft/" target="_blank" rel="noopener">Instagram</a>
       </nav>
       <p class="footer-copy">© 2025 SPÄTi am Delft · Gemacht mit ❤️ in Emden</p>

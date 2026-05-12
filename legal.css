@@ -1,0 +1,78 @@
+/* === Legal pages (Impressum / Datenschutz) === */
+
+.btn-back {
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.btn-back:hover { color: var(--gold); }
+
+.legal-page {
+  padding: 8rem 0 5rem;
+  min-height: 80vh;
+}
+
+.legal-page h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.legal-intro {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.legal-section {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.legal-section:last-child {
+  border-bottom: none;
+}
+
+.legal-section h2 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.35rem;
+  color: var(--gold);
+  margin-bottom: 0.85rem;
+}
+
+.legal-section p {
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 0.85rem;
+}
+
+.legal-section p:last-child { margin-bottom: 0; }
+
+.legal-section ul {
+  color: var(--muted);
+  padding-left: 1.5rem;
+  line-height: 1.9;
+  margin-bottom: 0.85rem;
+}
+
+.legal-section a {
+  color: var(--gold);
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+.legal-section a:hover { color: #D9BC86; }
+
+.legal-section em {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 0.9rem;
+}
