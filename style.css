@@ -58,10 +58,10 @@ a { color: inherit; text-decoration: none; }
 
 /* ── Logo Letters ── */
 .logo-s  { color: #C8A96E;   background: #C8302A;    border-radius: 6px; padding: 0 5px; }
-.logo-p  { color: #1E1B18;   background: #C8A96E;    border-radius: 6px; padding: 0 5px; }
+.logo-p  { color: #C8302A;   background: #C8A96E;    border-radius: 6px; padding: 0 5px; }
 .logo-ae { color: #C8A96E;   background: #6B68A8;    border-radius: 6px; padding: 0 5px; }
-.logo-t  { color: #1E1B18;   background: #C8A96E;    border-radius: 6px; padding: 0 5px; }
-.logo-i  { color: #1E1B18;   background: #C8A96E;    border-radius: 6px; padding: 0 5px; }
+.logo-t  { color: #C8302A;   background: #C8A96E;    border-radius: 6px; padding: 0 5px; }
+.logo-i  { color: #C8302A;   background: #C8A96E;    border-radius: 6px; padding: 0 5px; }
 
 /* ── Buttons ── */
 .btn-primary {
