@@ -2,7 +2,7 @@
 
 :root {
   /* Logo-Farben: vintage newspaper cutout style */
-  --red:     #BE2F2A;   /* Dunkelrot wie S- und T-Block */
+  --red:     #C8302A;   /* Kräftiges Rot wie S-Block im Logo */
   --gold:    #C8A96E;   /* Khaki/Antikgold wie P- und i-Block */
   --purple:  #7068A8;   /* Lavendel-Lila wie Ä-Block */
   --white:   #FFFFFF;
@@ -57,11 +57,11 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ── Logo Letters ── */
-.logo-s  { color: var(--gold);   background: var(--red);    border-radius: 6px; padding: 0 5px; }
-.logo-p  { color: var(--purple); background: var(--gold);   border-radius: 6px; padding: 0 5px; }
-.logo-ae { color: var(--gold);   background: var(--purple); border-radius: 6px; padding: 0 5px; }
-.logo-t  { color: var(--gold);   background: var(--purple); border-radius: 6px; padding: 0 5px; }
-.logo-i  { color: var(--purple); background: var(--gold);   border-radius: 6px; padding: 0 5px; }
+.logo-s  { color: #C8A96E;   background: #C8302A;    border-radius: 6px; padding: 0 5px; }
+.logo-p  { color: #6B68A8;   background: #C8A96E;    border-radius: 6px; padding: 0 5px; }
+.logo-ae { color: #C8A96E;   background: #6B68A8;    border-radius: 6px; padding: 0 5px; }
+.logo-t  { color: #1E1B18;   background: #C8A96E;    border-radius: 6px; padding: 0 5px; }
+.logo-i  { color: #1E1B18;   background: #C8A96E;    border-radius: 6px; padding: 0 5px; }
 
 /* ── Buttons ── */
 .btn-primary {
@@ -309,19 +309,33 @@ a { color: inherit; text-decoration: none; }
 }
 
 .badge-247 {
-  font-family: 'Fredoka One', cursive;
-  font-size: clamp(2rem, 6vw, 3.2rem);
-  background: var(--gold);
-  color: var(--bg);
-  padding: 0.2em 0.85em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  border: 1.5px solid rgba(200,169,110,0.35);
+  background: rgba(200,169,110,0.08);
+  padding: 0.45em 1.1em;
   border-radius: 50px;
-  box-shadow: 0 0 32px rgba(200,169,110,0.4);
-  animation: glow 2.5s ease-in-out infinite;
 }
 
-@keyframes glow {
-  0%, 100% { box-shadow: 0 0 32px rgba(200,169,110,0.4); }
-  50%       { box-shadow: 0 0 55px rgba(200,169,110,0.65); }
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.7); }
 }
 
 .hero-tagline {

@@ -31,7 +31,6 @@ const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        // Stagger delay for cards in the same parent
         const siblings = entry.target.parentElement.querySelectorAll('.fade-in');
         let delay = 0;
         siblings.forEach((el, idx) => {
@@ -58,7 +57,6 @@ form.addEventListener('submit', (e) => {
   const name    = form.querySelector('#name').value.trim();
   const message = form.querySelector('#message').value.trim();
 
-  // Hide previous messages
   successMsg.style.display = 'none';
   errorMsg.style.display   = 'none';
 
@@ -67,7 +65,6 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-  // Simulate send (replace with real backend / Formspree / Netlify Forms)
   const btn = form.querySelector('.btn-submit');
   btn.textContent = 'Wird gesendet…';
   btn.disabled = true;
