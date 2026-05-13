@@ -471,6 +471,84 @@ a { color: inherit; text-decoration: none; }
 .product-card-cta h3 { color: var(--white); }
 .product-card-cta p  { color: rgba(255,255,255,0.75); }
 
+/* ── VERMIETUNG ── */
+#vermietung { padding: 6rem 0; background: var(--bg-card); }
+
+.rental-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.rental-card {
+  background: var(--bg);
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.rental-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--red);
+}
+
+.rental-emoji { font-size: 3.5rem; }
+
+.rental-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.rental-badge {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: rgba(200,48,42,0.15);
+  color: var(--red);
+  border: 1px solid rgba(200,48,42,0.3);
+  padding: 0.25em 0.75em;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+.rental-badge-gold {
+  background: rgba(200,169,110,0.15);
+  color: var(--gold);
+  border-color: rgba(200,169,110,0.3);
+}
+
+.rental-card h3 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.7rem;
+  color: var(--white);
+}
+
+.rental-desc {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.rental-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 700;
+  flex: 1;
+}
+
+.rental-card .btn-primary { align-self: flex-start; margin-top: 0.5rem; }
+
 /* ── STANDORT ── */
 #standort {
   background: var(--bg-card);
@@ -775,4 +853,5 @@ footer {
   .hero-actions { flex-direction: column; align-items: center; }
   .products-grid { grid-template-columns: 1fr 1fr; }
   .about-grid { grid-template-columns: 1fr; }
+  .rental-grid { grid-template-columns: 1fr; }
 }
