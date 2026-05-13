@@ -471,6 +471,177 @@ a { color: inherit; text-decoration: none; }
 .product-card-cta h3 { color: var(--white); }
 .product-card-cta p  { color: rgba(255,255,255,0.75); }
 
+/* ── ANLEITUNG ── */
+#anleitung {
+  padding: 6rem 0;
+  background: var(--bg-card);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.step-card {
+  background: var(--bg);
+  border-radius: 18px;
+  padding: 2rem 1.5rem 1.75rem;
+  border: 1px solid var(--border);
+  position: relative;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+
+.step-num {
+  position: absolute;
+  top: -14px;
+  left: 1.5rem;
+  width: 28px;
+  height: 28px;
+  background: var(--gold);
+  color: var(--bg);
+  border-radius: 50%;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-icon { font-size: 2.4rem; margin-bottom: 0.7rem; }
+
+.step-card h3 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.3rem;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.step-card p { color: var(--muted); font-size: 0.92rem; line-height: 1.65; }
+.step-card strong { color: var(--text); }
+
+.guide-payment {
+  background: var(--bg);
+  border-radius: 18px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+.guide-payment h3 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.4rem;
+  color: var(--gold);
+  margin-bottom: 1.1rem;
+}
+
+.payment-methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.payment-method {
+  background: rgba(200,169,110,0.09);
+  border: 1px solid rgba(200,169,110,0.22);
+  border-radius: 50px;
+  padding: 0.4em 1.1em;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.guide-note {
+  color: var(--muted);
+  font-size: 0.87rem;
+  line-height: 1.5;
+}
+
+.guide-note strong { color: var(--red); }
+
+.guide-age-box {
+  display: flex;
+  gap: 1.5rem;
+  background: var(--bg);
+  border-radius: 18px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(112,104,168,0.3);
+  align-items: flex-start;
+}
+
+.guide-age-icon { font-size: 3rem; flex-shrink: 0; line-height: 1; }
+
+.guide-age-content h3 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.4rem;
+  color: var(--purple);
+  margin-bottom: 0.7rem;
+}
+
+.guide-age-content p {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin-bottom: 0.75rem;
+}
+
+.guide-age-content strong { color: var(--text); }
+
+.guide-age-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.guide-media-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.guide-media-placeholder {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2px dashed rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.02);
+  aspect-ratio: 4/3;
+  transition: border-color 0.2s;
+}
+
+.guide-media-placeholder:hover { border-color: rgba(200,169,110,0.35); }
+
+.guide-media-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.guide-media-icon { font-size: 2.5rem; }
+
+.guide-media-label {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.15rem;
+  color: var(--white);
+}
+
+.guide-media-sub { color: var(--muted); font-size: 0.82rem; }
+
 /* ── STANDORT ── */
 #standort {
   background: var(--bg-card);
@@ -847,6 +1018,9 @@ footer {
   #hero { padding: 6rem 1rem 4rem; }
 
   section { padding: 4.5rem 0; }
+
+  .guide-media-row { grid-template-columns: 1fr; }
+  .guide-age-box { flex-direction: column; gap: 1rem; }
 }
 
 @media (max-width: 480px) {
