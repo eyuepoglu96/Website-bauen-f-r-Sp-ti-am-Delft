@@ -1,250 +1,645 @@
 <!DOCTYPE html>
-<html lang="de">
+<html class="dark" lang="de">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SPÄTi am Delft – Dein 24/7 Kiosk in Emden</title>
-  <meta name="description" content="SPÄTi am Delft – Dein Kiosk, immer auf! Snacks, Drinks und mehr. 24/7 in Emden, Neutorstraße 2.">
+  <title>SPÄTi am Delft | Dein 24/7 Kiosk in Emden</title>
+  <meta name="description" content="SPÄTi am Delft – Dein 24/7 Kiosk in Emden. Snacks, Drinks, Vapes und mehr. Neutorstraße 2, 26723 Emden.">
   <meta property="og:title" content="SPÄTi am Delft – 24/7 Kiosk Emden">
   <meta property="og:description" content="Snack Attack. Kioskkultur. Nachtmeile. Immer für dich da.">
   <meta property="og:type" content="website">
-  <!-- Bunny Fonts: DSGVO-konform (europäischer CDN, keine Datenweitergabe an USA) -->
-  <link rel="preconnect" href="https://fonts.bunny.net">
-  <link href="https://fonts.bunny.net/css?family=playfair-display:700,900|fredoka-one:400|nunito:400,600,700,800,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
 
-  <!-- ===== NAVIGATION ===== -->
-  <nav id="navbar">
-    <div class="nav-container">
-      <a href="#hero" class="nav-logo">
-        <span class="logo-s">S</span><span class="logo-p">P</span><span class="logo-ae">Ä</span><span class="logo-t">T</span><span class="logo-i">i</span>
-        <span class="logo-delft">am Delft</span>
+  <!-- Bunny Fonts – DSGVO-konform (EU-Server, keine Datenweitergabe an USA) -->
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=anybody:400,700,800,900|space-grotesk:400,600|manrope:400,600,700&display=swap" rel="stylesheet">
+
+  <!-- Material Symbols via jsDelivr (DSGVO-konform) -->
+  <link href="https://cdn.jsdelivr.net/npm/material-symbols@0.23.0/outlined.css" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-container": "#ff5545",
+            "on-primary-container": "#1a0000",
+            "secondary-container": "#fecb00",
+            "on-secondary-container": "#241a00",
+            "tertiary-container": "#c567f4",
+            "on-tertiary-container": "#460066",
+            "error-container": "#93000a",
+            "on-error-container": "#ffdad6",
+            "surface-tint": "#ffb4aa",
+            "on-surface-variant": "#e7bdb7",
+            "surface-variant": "#353534",
+            "on-surface": "#e5e2e1",
+            "surface-container-low": "#1c1b1b",
+            "surface-container": "#201f1f",
+            "surface-container-high": "#2a2a2a",
+            "surface-container-highest": "#353534",
+            "surface-container-lowest": "#0e0e0e",
+            "surface-bright": "#393939",
+            "surface-dim": "#131313",
+            "outline": "#ad8883",
+            "outline-variant": "#5d3f3b",
+            "on-background": "#e5e2e1",
+            "background": "#131313",
+            "surface": "#131313",
+            "primary": "#ffb4aa",
+            "on-primary": "#690003",
+            "secondary": "#ffecc0",
+            "on-secondary": "#3d2f00",
+            "tertiary": "#e8b3ff",
+            "on-tertiary": "#510074",
+            "error": "#ffb4ab",
+            "on-error": "#690005",
+            "inverse-surface": "#e5e2e1",
+            "inverse-on-surface": "#313030",
+            "inverse-primary": "#c0000a",
+          },
+          fontFamily: {
+            "headline-md": ["Anybody", "sans-serif"],
+            "headline-lg": ["Anybody", "sans-serif"],
+            "display-xl": ["Anybody", "sans-serif"],
+            "label-sm": ["Space Grotesk", "sans-serif"],
+            "body-md": ["Manrope", "sans-serif"],
+            "body-lg": ["Manrope", "sans-serif"],
+          },
+          fontSize: {
+            "display-xl":  ["clamp(2.5rem,8vw,4rem)", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "900" }],
+            "headline-lg": ["clamp(1.75rem,4vw,2.5rem)", { lineHeight: "1.2", fontWeight: "800" }],
+            "headline-md": ["1.5rem",  { lineHeight: "1.3", fontWeight: "700" }],
+            "label-sm":    ["0.75rem", { lineHeight: "1",   letterSpacing: "0.05em", fontWeight: "600" }],
+            "body-md":     ["1rem",    { lineHeight: "1.6", fontWeight: "400" }],
+            "body-lg":     ["1.125rem",{ lineHeight: "1.6", fontWeight: "400" }],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-family: 'Material Symbols Outlined', sans-serif;
+    }
+    .glass-card {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+    }
+    .glass-card:hover {
+      border-color: #ff5545;
+      background: rgba(255,85,69,0.05);
+      box-shadow: 0 0 20px rgba(255,85,69,0.15);
+    }
+    .product-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      border-color: #ff5545;
+      box-shadow: 0 12px 32px -8px rgba(255,85,69,0.25);
+    }
+    .zoom-crop { overflow: hidden; position: relative; }
+    .zoom-crop img { transition: transform 0.5s ease; }
+    .product-card:hover .zoom-crop img { transform: scale(1.1); }
+    .step-number {
+      font-family: 'Anybody', sans-serif;
+      -webkit-text-stroke: 1px #ff5545;
+      color: transparent;
+      font-size: 6rem;
+      font-weight: 900;
+      line-height: 1;
+      opacity: 0.4;
+    }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+
+  <!-- ===== NAV ===== -->
+  <nav class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/30 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+    <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+      <a href="#" class="flex items-center gap-3">
+        <img src="logo.png" alt="SPÄTi am Delft Logo" class="h-10 w-auto">
       </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#sortiment">Sortiment</a></li>
-        <li><a href="#standort">Standort</a></li>
-        <li><a href="#instagram">Instagram</a></li>
-        <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
-      </ul>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#sortiment" class="text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-widest">Sortiment</a>
+        <a href="#anleitung" class="text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-widest">Anleitung</a>
+        <a href="#faq"       class="text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-widest">FAQ</a>
+        <a href="#vermietung" class="text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-widest">Vermietung</a>
+        <a href="#standort"  class="text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-widest">Standort</a>
+      </div>
+      <a href="#kontakt" class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:scale-105 active:scale-95 transition-all">
+        Kontakt
+      </a>
     </div>
   </nav>
 
   <!-- ===== HERO ===== -->
-  <section id="hero">
-    <div class="hero-bg-glow"></div>
-    <div class="hero-content">
-      <img src="logo.png" alt="SPÄTi am Delft Logo" class="hero-logo-img">
-      <div class="badge-247" aria-label="24 Stunden, 7 Tage die Woche geöffnet">24 / 7</div>
-      <p class="hero-tagline">Dein Kiosk. Immer auf. Immer da.</p>
-      <div class="hero-tags">
-        <span>🍿 Snack Attack</span>
-        <span>🏪 Kioskkultur</span>
-        <span>🌙 Nachtmeile</span>
-        <span>✨ Gönn dir!</span>
+  <header class="relative min-h-[90vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+    <div class="relative z-10 max-w-4xl mx-auto">
+      <div class="inline-flex items-center gap-2 bg-surface-container-high px-4 py-2 rounded-full mb-8 border border-outline-variant/30">
+        <span class="w-2 h-2 bg-secondary-container rounded-full animate-pulse"></span>
+        <span class="text-label-sm font-label-sm uppercase tracking-widest text-secondary-container">24 / 7 Geöffnet</span>
       </div>
-      <div class="hero-actions">
-        <a href="#standort" class="btn-primary">📍 So findest du uns</a>
-        <a href="#sortiment" class="btn-secondary">Unser Sortiment</a>
+      <div class="flex justify-center mb-8">
+        <img src="logo.png" alt="SPÄTi am Delft" class="h-28 w-auto drop-shadow-[0_0_20px_rgba(255,85,69,0.35)]">
+      </div>
+      <h1 class="font-display-xl text-display-xl text-on-surface mb-6">
+        Dein Kiosk.<br>
+        <span class="text-primary-container drop-shadow-[0_0_15px_rgba(255,85,69,0.5)]">Immer auf.</span> Immer da.
+      </h1>
+      <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12">
+        Echter Späti-Spirit mitten in Emden. Wir versorgen dich rund um die Uhr mit Snacks, Drinks und urbaner Kioskkultur.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 mb-12">
+        <span class="glass-card px-4 py-2 rounded-lg text-label-sm font-label-sm uppercase tracking-widest">🍿 Snack Attack</span>
+        <span class="glass-card px-4 py-2 rounded-lg text-label-sm font-label-sm uppercase tracking-widest">🏪 Kioskkultur</span>
+        <span class="glass-card px-4 py-2 rounded-lg text-label-sm font-label-sm uppercase tracking-widest">🌙 Nachtmeile</span>
+        <span class="glass-card px-4 py-2 rounded-lg text-label-sm font-label-sm uppercase tracking-widest">✨ Gönn dir!</span>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#standort" class="bg-primary-container text-on-primary-container px-8 py-4 rounded-xl font-headline-md text-headline-md flex items-center gap-2 hover:shadow-[0_0_30px_rgba(255,85,69,0.4)] transition-all">
+          <span class="material-symbols-outlined">location_on</span> So findest du uns
+        </a>
+        <a href="#sortiment" class="glass-card px-8 py-4 rounded-xl font-headline-md text-headline-md">
+          Unser Sortiment
+        </a>
       </div>
     </div>
-    <a href="#about" class="hero-scroll" aria-label="Nach unten scrollen">↓</a>
-  </section>
+  </header>
 
-  <!-- ===== ABOUT ===== -->
-  <section id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-card fade-in" style="--card-color: #D42B2B">
-          <div class="about-icon">🌙</div>
-          <h3>Nachtmeile</h3>
-          <p>Tag oder Nacht – wir sind auf. Immer. 24 Stunden, 7 Tage die Woche, kein Feierabend.</p>
+  <!-- ===== KEY VALUES ===== -->
+  <section class="py-20 px-6 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="glass-card p-8 rounded-2xl">
+        <div class="w-12 h-12 bg-secondary-container/20 text-secondary-container rounded-lg flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">dark_mode</span>
         </div>
-        <div class="about-card fade-in" style="--card-color: #F5A800">
-          <div class="about-icon">🍿</div>
-          <h3>Snack Attack</h3>
-          <p>Chips, Süßes, Drinks und mehr. Alles was dein Hunger verlangt – direkt aus dem Automaten.</p>
+        <h3 class="font-headline-md text-headline-md mb-3">Nachtmeile</h3>
+        <p class="text-on-surface-variant">Tag oder Nacht – wir sind auf. Immer. 24 Stunden, 7 Tage die Woche, kein Feierabend.</p>
+      </div>
+      <div class="glass-card p-8 rounded-2xl">
+        <div class="w-12 h-12 bg-primary-container/20 text-primary-container rounded-lg flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">fastfood</span>
         </div>
-        <div class="about-card fade-in" style="--card-color: #7B35A0">
-          <div class="about-icon">🏪</div>
-          <h3>Kioskkultur</h3>
-          <p>Mehr als ein Automat. Ein Ort, ein Gefühl. Echter Späti-Spirit, mitten in Emden.</p>
+        <h3 class="font-headline-md text-headline-md mb-3">Snack Attack</h3>
+        <p class="text-on-surface-variant">Chips, Süßes, Drinks und mehr. Alles was dein Hunger verlangt – direkt aus dem Automaten.</p>
+      </div>
+      <div class="glass-card p-8 rounded-2xl">
+        <div class="w-12 h-12 bg-tertiary-container/20 text-tertiary-container rounded-lg flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">storefront</span>
         </div>
+        <h3 class="font-headline-md text-headline-md mb-3">Kioskkultur</h3>
+        <p class="text-on-surface-variant">Mehr als ein Automat. Ein Ort, ein Gefühl. Echter Späti-Spirit, mitten in Emden.</p>
       </div>
     </div>
   </section>
 
   <!-- ===== SORTIMENT ===== -->
-  <section id="sortiment">
-    <div class="container">
-      <h2 class="section-title">Unser <span class="highlight-gold">Sortiment</span></h2>
-      <p class="section-subtitle">Alles was du brauchst – und mehr.</p>
-      <div class="products-grid">
-        <div class="product-card fade-in">
-          <div class="product-emoji">🍫</div>
-          <h3>Süßigkeiten</h3>
-          <p>Schokolade, Gummibärchen, Riegel und alles für den süßen Hunger</p>
+  <section class="py-20 px-6 bg-surface-container-lowest" id="sortiment">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-16 text-center">
+        <h2 class="font-headline-lg text-headline-lg mb-4">Unser <span class="text-secondary-container">Sortiment</span></h2>
+        <p class="text-on-surface-variant">Frisch bestückt aus unseren Automaten – 24/7 für dich da.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div class="product-card rounded-3xl overflow-hidden flex flex-col group">
+          <div class="zoom-crop aspect-square bg-surface-container-high">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKMrVdjGE_S3LuLJkatD87ELZ8y1FJSDpeMlIqdctZNmxl3nZnxh9c0Pi9Qi5AfWBIxp1t1pYF5tMUM5ZGsOvEoqA5oOeoXdr0Ld7q4R86UMW1VCD3nroOCaq-XeeZlJn_EwPbIiMY_4LegxK9T9ylpaoR5PjFQpheemYLNUBGE7Acaxgtfeo1EjbVfUUSDfxL3iTj5s5d7vGrzrnUo-vJ3wbtqI8oJi2ZU3ddzInqT64Omu97DAphKVOo-6lp-c2qJ8nfRG4mogM" alt="Drinks" class="w-full h-full object-cover opacity-90">
+          </div>
+          <div class="p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="material-symbols-outlined text-secondary-container">local_drink</span>
+              <h3 class="font-headline-md text-headline-md">Drinks</h3>
+            </div>
+            <p class="text-on-surface-variant text-body-md">Eiskalte Erfrischung rund um die Uhr. Von Energy-Drinks bis hin zu klassischen Softdrinks.</p>
+          </div>
         </div>
-        <div class="product-card fade-in">
-          <div class="product-emoji">🥤</div>
-          <h3>Drinks</h3>
-          <p>Softdrinks, Energy Drinks, Wasser, Säfte – kalt und erfrischend</p>
+
+        <div class="product-card rounded-3xl overflow-hidden flex flex-col group">
+          <div class="zoom-crop aspect-square bg-surface-container-high">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2NHx5z0Emglsq7Pld44YN_29tFpJdE5YO27LcjjEs9kr9Qh6MS2SGSPc3T9dx0prI4v2KybpyL2D5UbXT5CtTlIkmmswMCM3bRB3KOCp2C85jxMijDccEDKsXvgGEh-3L1Q_Nz0sqTbqbsMPhuBgkU61lUpKUlmzivRmYJZjij-i7-WwClK3NxEtac8euIbzHSUOz6sU8YsyB4EWDOOthHT16DzdILzjmlIGmYy2hX-tpXDQ-6Lmit4SnfQVf_BNeUqhvs95F7J0" alt="Süßigkeiten" class="w-full h-full object-cover opacity-90">
+          </div>
+          <div class="p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="material-symbols-outlined text-primary-container">candy</span>
+              <h3 class="font-headline-md text-headline-md">Süßigkeiten</h3>
+            </div>
+            <p class="text-on-surface-variant text-body-md">Für den süßen Hunger. Schokolade, Riegel und alles, was das Herz begehrt.</p>
+          </div>
         </div>
-        <div class="product-card fade-in">
-          <div class="product-emoji">🍟</div>
-          <h3>Snacks</h3>
-          <p>Chips, Nüsse, Knabbereien – für jeden Geschmack und jede Uhrzeit</p>
+
+        <div class="product-card rounded-3xl overflow-hidden flex flex-col group">
+          <div class="zoom-crop aspect-square bg-surface-container-high">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqCLxw3FwMgaCHWPvKSUjOgtcI4iUqYZTLIvybEaKr_h8EK00Uw9Uf_6IBImQb24WTD_7Gy0qy8UPGarcepW_3-zWVhaPqR7WiLN9hbQXr2TRc06y6qolc_nVjXXIUvHnhRWDMxv3Rg5u2Lrf_eOyIX7l1hf_bNP9R_WmzSCAZclVsAwHH2jTya8PCl6mwQyv3SDcj7-IY8mKPZv0lp45ea9VAK8Rpkg8ThxtHVbnGOaWBM1HD31GYVe8kzpy02C6IJmegSTbN61U" alt="Snacks" class="w-full h-full object-cover opacity-90">
+          </div>
+          <div class="p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="material-symbols-outlined text-tertiary-container">bakery_dining</span>
+              <h3 class="font-headline-md text-headline-md">Snacks</h3>
+            </div>
+            <p class="text-on-surface-variant text-body-md">Gourmet-Cookies und herzhafte Snacks für den perfekten Begleiter an deinem Abend.</p>
+          </div>
         </div>
-        <div class="product-card fade-in">
-          <div class="product-emoji">🧴</div>
-          <h3>Drogerie</h3>
-          <p>Das Nötigste für unterwegs – Zahnbürste, Kondome, Pflaster & Co.</p>
+
+        <div class="product-card rounded-3xl overflow-hidden flex flex-col group">
+          <div class="zoom-crop aspect-square bg-surface-container-high">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg9TGznnuJJoGHMUaT07W6mhPh5olqG9nXpg8wDHnvhoD88M0xC5651sLstdhvmI08bVxSxuKI5J3-bqWQSOAA9-bGOQu0TfxvUDcx2wcrP_AV4ZFfF5MPi5UIZSmQI6SBUjEORQJ8eOPIA8BQQBXFlndRygU79VdebPmbFksNttRM2mEghMhR9G2vWhOAW6RiuAlLtp2S4BdmIRMMid9rI79Q5uuaoUEIuF3Q5JJtrFZST8jJPo_6FiVMmWR59Pc8VHruQOdKHhY" alt="Vapes" class="w-full h-full object-cover opacity-90">
+          </div>
+          <div class="p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="material-symbols-outlined text-on-surface-variant">air</span>
+              <h3 class="font-headline-md text-headline-md">Vapes</h3>
+            </div>
+            <p class="text-on-surface-variant text-body-md">Große Auswahl an Disposable Vapes in verschiedenen Geschmacksrichtungen. Altersverifikation erforderlich.</p>
+          </div>
         </div>
-        <div class="product-card fade-in">
-          <div class="product-emoji">☕</div>
-          <h3>Heiße Drinks</h3>
-          <p>Kaffee und Heißgetränke – auch mitten in der Nacht</p>
+
+        <div class="product-card rounded-3xl overflow-hidden flex flex-col group">
+          <div class="zoom-crop aspect-square bg-surface-container-high">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkNUvS_NRWJYXmdkEsADbC06428ariz5bbsiZXu24Dl2glisHfx9kQmxp7s9MA7j1H_f3bLPVAbDoJdA8IrUVRTa25a6aZp0DDWEwFALI-7iCcCMpuYi6USH-92esPhS8_LWM8m6zM8ZBPZWXhMcJEjf3pvh05rmTlJvIMikOdetADGxLjAA7plPf4o3gTl05r6RDrNkTbXujlVYBpkXKHXC4crZIJaOtjdubhImp-ESF7yhuX2eCRYQt4U5qvp968AjkIUjfWuuk" alt="Drogerie" class="w-full h-full object-cover opacity-90">
+          </div>
+          <div class="p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="material-symbols-outlined text-secondary-container">sanitizer</span>
+              <h3 class="font-headline-md text-headline-md">Drogerie</h3>
+            </div>
+            <p class="text-on-surface-variant text-body-md">Schwangerschaftstests, Hygieneartikel und wichtige Alltagshelfer für den Notfall – 24/7 verfügbar.</p>
+          </div>
         </div>
-        <div class="product-card product-card-cta fade-in">
-          <div class="product-emoji">👀</div>
-          <h3>Noch mehr?</h3>
-          <p>Komm vorbei und entdecke das volle Sortiment – es lohnt sich!</p>
-          <a href="#standort" class="btn-small">Standort ansehen</a>
+
+        <div class="product-card rounded-3xl overflow-hidden flex flex-col group bg-gradient-to-br from-surface-container to-surface-container-high border-primary-container/30">
+          <div class="p-8 flex flex-col items-center justify-center h-full text-center gap-4" style="min-height:280px">
+            <span class="text-5xl">👀</span>
+            <h3 class="font-headline-md text-headline-md">Noch mehr?</h3>
+            <p class="text-on-surface-variant">Komm vorbei und entdecke das volle Sortiment – es lohnt sich immer!</p>
+            <a href="#standort" class="mt-2 bg-primary-container text-on-primary-container px-6 py-3 rounded-xl font-label-sm text-label-sm uppercase tracking-widest hover:scale-105 transition-all">Standort ansehen</a>
+          </div>
         </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ANLEITUNG ===== -->
+  <section class="py-20 px-6" id="anleitung">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-16">
+        <h2 class="font-headline-lg text-headline-lg mb-4">So funktioniert's – <span class="text-primary-container">der Automat</span></h2>
+        <p class="text-on-surface-variant">In 4 einfachen Schritten zu deinem Produkt</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="space-y-4">
+          <div class="step-number">1</div>
+          <div class="bg-surface-container-high p-6 rounded-2xl border border-outline-variant/30">
+            <div class="text-4xl mb-4">🔢</div>
+            <h4 class="font-headline-md text-headline-md mb-2">Produkt wählen</h4>
+            <p class="text-on-surface-variant text-body-md">Gib die Nummer deines Wunschprodukts über das Tastenfeld ein.</p>
+          </div>
+        </div>
+        <div class="space-y-4 md:mt-12">
+          <div class="step-number">2</div>
+          <div class="bg-surface-container-high p-6 rounded-2xl border border-outline-variant/30">
+            <div class="text-4xl mb-4">🪪</div>
+            <h4 class="font-headline-md text-headline-md mb-2">Verifikation</h4>
+            <p class="text-on-surface-variant text-body-md">Bei Vapes: Halte deinen Personalausweis an das Lesegerät.</p>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="step-number">3</div>
+          <div class="bg-surface-container-high p-6 rounded-2xl border border-outline-variant/30">
+            <div class="text-4xl mb-4">💳</div>
+            <h4 class="font-headline-md text-headline-md mb-2">Bezahlen</h4>
+            <p class="text-on-surface-variant text-body-md">Karte oder Smartphone ans Terminal halten. Vollständig kontaktlos.</p>
+          </div>
+        </div>
+        <div class="space-y-4 md:mt-12">
+          <div class="step-number">4</div>
+          <div class="bg-surface-container-high p-6 rounded-2xl border border-outline-variant/30">
+            <div class="text-4xl mb-4">🎉</div>
+            <h4 class="font-headline-md text-headline-md mb-2">Entnehmen</h4>
+            <p class="text-on-surface-variant text-body-md">Produkt aus dem Ausgabefach nehmen und genießen!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 glass-card p-8 rounded-3xl grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <h5 class="font-headline-md text-headline-md mb-6 flex items-center gap-2">
+            <span class="material-symbols-outlined text-secondary-container">payments</span>
+            Akzeptierte Zahlungsarten
+          </h5>
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-surface-container-highest px-4 py-2 rounded-lg text-label-sm font-label-sm">Geldscheine</span>
+            <span class="bg-surface-container-highest px-4 py-2 rounded-lg text-label-sm font-label-sm">Münzen</span>
+            <span class="bg-surface-container-highest px-4 py-2 rounded-lg text-label-sm font-label-sm">EC-Karte</span>
+            <span class="bg-surface-container-highest px-4 py-2 rounded-lg text-label-sm font-label-sm">Visa</span>
+            <span class="bg-surface-container-highest px-4 py-2 rounded-lg text-label-sm font-label-sm">Mastercard</span>
+            <span class="bg-surface-container-highest px-4 py-2 rounded-lg text-label-sm font-label-sm">Apple Pay</span>
+            <span class="bg-surface-container-highest px-4 py-2 rounded-lg text-label-sm font-label-sm">Google Pay</span>
+          </div>
+        </div>
+        <div>
+          <h5 class="font-headline-md text-headline-md mb-6 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary-container">badge</span>
+            Altersverifikation (Vapes)
+          </h5>
+          <ul class="space-y-2 text-on-surface-variant">
+            <li class="flex items-center gap-2"><span class="text-secondary-container">✓</span> Personalausweis (DE)</li>
+            <li class="flex items-center gap-2"><span class="text-secondary-container">✓</span> Reisepass</li>
+            <li class="flex items-center gap-2"><span class="text-secondary-container">✓</span> EU-Ausweis mit Chip</li>
+            <li class="flex items-center gap-2 text-error-container">✕ Führerschein nicht lesbar</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="py-20 px-6 bg-surface-container-lowest" id="faq">
+    <div class="max-w-3xl mx-auto">
+      <div class="mb-16 text-center">
+        <h2 class="font-headline-lg text-headline-lg mb-4">Häufige <span class="text-tertiary-container">Fragen</span></h2>
+        <p class="text-on-surface-variant">Alles was du wissen musst – kurz und knapp.</p>
+      </div>
+      <div class="space-y-4" id="faq-list">
+
+        <details class="glass-card rounded-2xl group">
+          <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline-md text-headline-md">
+            Was tue ich wenn ein Produkt stecken bleibt?
+            <span class="material-symbols-outlined text-primary-container transition-transform group-open:rotate-180">expand_more</span>
+          </summary>
+          <p class="px-6 pb-6 text-on-surface-variant">Schreib uns direkt auf Instagram <a href="https://www.instagram.com/spaeti_amdelft/" class="text-primary-container underline" target="_blank">@spaeti_amdelft</a> oder per E-Mail an <a href="mailto:MKEEGBR@outlook.de" class="text-primary-container underline">MKEEGBR@outlook.de</a>. Wir kümmern uns schnellstmöglich darum und erstatten dir den Betrag.</p>
+        </details>
+
+        <details class="glass-card rounded-2xl group">
+          <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline-md text-headline-md">
+            Kann ich mit Bargeld bezahlen?
+            <span class="material-symbols-outlined text-primary-container transition-transform group-open:rotate-180">expand_more</span>
+          </summary>
+          <p class="px-6 pb-6 text-on-surface-variant">Ja! Der Automat akzeptiert Geldscheine, Münzen, EC-Karte, Visa, Mastercard sowie Apple Pay und Google Pay.</p>
+        </details>
+
+        <details class="glass-card rounded-2xl group">
+          <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline-md text-headline-md">
+            Wie oft wird der Automat aufgefüllt?
+            <span class="material-symbols-outlined text-primary-container transition-transform group-open:rotate-180">expand_more</span>
+          </summary>
+          <p class="px-6 pb-6 text-on-surface-variant">Wir füllen regelmäßig auf. Falls ein Produkt ausverkauft ist, schreib uns gerne – wir nehmen Produktwünsche ernst und bestücken den Automaten entsprechend.</p>
+        </details>
+
+        <details class="glass-card rounded-2xl group">
+          <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline-md text-headline-md">
+            Warum brauche ich meinen Ausweis für Vapes?
+            <span class="material-symbols-outlined text-primary-container transition-transform group-open:rotate-180">expand_more</span>
+          </summary>
+          <p class="px-6 pb-6 text-on-surface-variant">Vapes sind in Deutschland nur für Personen ab 18 Jahren erhältlich. Die Altersverifikation per Ausweislesegerät ist gesetzlich vorgeschrieben. Es funktioniert nur mit Personalausweis, Reisepass oder EU-Ausweis mit Chip – nicht mit dem Führerschein.</p>
+        </details>
+
+        <details class="glass-card rounded-2xl group">
+          <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline-md text-headline-md">
+            Kann ich ein Produkt vorschlagen?
+            <span class="material-symbols-outlined text-primary-container transition-transform group-open:rotate-180">expand_more</span>
+          </summary>
+          <p class="px-6 pb-6 text-on-surface-variant">Auf jeden Fall! Schreib uns dein Produktwunsch über das Kontaktformular weiter unten oder direkt auf Instagram. Wir freuen uns über jedes Feedback.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VERMIETUNG ===== -->
+  <section class="py-20 px-6" id="vermietung">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="font-headline-lg text-headline-lg mb-4">Miete unsere <span class="text-tertiary-container">Automaten</span></h2>
+        <p class="text-on-surface-variant">Perfekt für Events, Hochzeiten, Geburtstage &amp; mehr.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div class="glass-card overflow-hidden rounded-3xl flex flex-col">
+          <div class="aspect-video relative bg-surface-container-high flex items-center justify-center">
+            <img class="absolute inset-0 w-full h-full object-cover mix-blend-luminosity opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwsAOWgtdyaR8chAElDIYG4ozibWiNpVUA8bmXd5iiJ5N0Cqs52rxCpoo1BHNRzodthL5r7IR24su1EYLI_eG564eK9VOgjTmUALSAC0Ic3E0ESMmsCKXiANxgDRH6xvR7iFJIFXDJXq2m2C83z0ZFEcbDOGnEq1bpOdVVn8MVrqaL0C9Yf-0DAklGNjK8vjfs3GZ4V49kUhTrBLq8BU-8nzE3LBJwHTP8L6JAic4HKSL-xBZPjzF6fZd0q_uQ6j9C_x4-BzbrFbk" alt="Boxautomat">
+            <div class="relative z-10 text-center">
+              <span class="text-6xl">🥊</span>
+              <div class="mt-4 bg-primary-container text-on-primary-container px-4 py-1 rounded-full font-label-sm text-label-sm">ab 120 € / Miete</div>
+            </div>
+          </div>
+          <div class="p-8 space-y-4 flex-grow flex flex-col">
+            <h4 class="font-headline-md text-headline-md">Boxautomat</h4>
+            <p class="text-on-surface-variant flex-grow">Der absolute Hingucker für Partys! Misst die Schlagkraft und sorgt für Spannung unter den Gästen.</p>
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2 text-secondary-container text-sm"><span class="material-symbols-outlined text-sm">check_circle</span> Perfekt für Events &amp; Hochzeiten</li>
+              <li class="flex items-center gap-2 text-secondary-container text-sm"><span class="material-symbols-outlined text-sm">check_circle</span> Für drinnen &amp; draußen geeignet</li>
+            </ul>
+            <a href="mailto:MKEEGBR@outlook.de?subject=Anfrage Boxautomat Miete" class="mt-2 block text-center bg-on-surface text-background font-headline-md py-4 rounded-xl hover:bg-primary-container hover:text-on-primary-container transition-colors">
+              Jetzt anfragen
+            </a>
+          </div>
+        </div>
+
+        <div class="glass-card overflow-hidden rounded-3xl flex flex-col">
+          <div class="aspect-video relative bg-surface-container-high flex items-center justify-center">
+            <img class="absolute inset-0 w-full h-full object-cover mix-blend-luminosity opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDumwaTcXuOF24Gosx2h0yY6YX38PFdm8kAzSx_7GBV48F1nHGfzdNwiZ3xNeUfgL-PMNsHzBpcpLBeg8nTGJdkvNsq8XGRwj8MkehHalJAfT-QYN7jv94eKyAXGuPWdN41Y5Fi5eP3c73MolaIFz5c0r_awzUITSiU3rZJkN8qfIdkSk7QCBrhY4yDGWbrm8vBmVXdJ5uMvelLPiQuPkLtY6BG_fMB9hoiLVuiRuvVO3wtzhyk0NyDPr6bbc7GlyCySCDXenL0nks" alt="Arcade Automat">
+            <div class="relative z-10 text-center">
+              <span class="text-6xl">🕹️</span>
+              <div class="mt-4 bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full font-label-sm text-label-sm">ab 150 € / Monat</div>
+            </div>
+          </div>
+          <div class="p-8 space-y-4 flex-grow flex flex-col">
+            <h4 class="font-headline-md text-headline-md">Arcade Automat</h4>
+            <p class="text-on-surface-variant flex-grow">Game Box Arcade-Spielautomat – Retro-Gaming für dein Event, dein Lokal oder dein Büro. Bringt Spaß für Jung und Alt.</p>
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2 text-secondary-container text-sm"><span class="material-symbols-outlined text-sm">check_circle</span> Viele Spiele vorinstalliert</li>
+              <li class="flex items-center gap-2 text-secondary-container text-sm"><span class="material-symbols-outlined text-sm">check_circle</span> Ideal für Bars, Events &amp; Büros</li>
+            </ul>
+            <a href="mailto:MKEEGBR@outlook.de?subject=Anfrage Arcade Automat Miete" class="mt-2 block text-center bg-on-surface text-background font-headline-md py-4 rounded-xl hover:bg-secondary-container hover:text-on-secondary-container transition-colors">
+              Jetzt anfragen
+            </a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- ===== STANDORT ===== -->
-  <section id="standort">
-    <div class="container">
-      <h2 class="section-title">Wo du uns <span class="highlight-red">findest</span></h2>
-      <div class="standort-grid">
-        <div class="standort-info">
-          <div class="info-block fade-in">
-            <div class="info-icon">📍</div>
+  <section class="py-20 px-6 bg-surface-container-lowest" id="standort">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div class="space-y-8">
+        <h2 class="font-headline-lg text-headline-lg">Wo du uns <span class="text-primary-container">findest</span></h2>
+        <div class="space-y-6">
+          <div class="flex gap-4">
+            <div class="w-12 h-12 bg-primary-container/20 text-primary-container rounded-xl flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined">location_on</span>
+            </div>
             <div>
-              <h3>Adresse</h3>
-              <p>Neutorstraße 2<br>26723 Emden</p>
+              <h5 class="font-bold text-lg mb-1">Adresse</h5>
+              <p class="text-on-surface-variant">Neutorstraße 2<br>26723 Emden</p>
             </div>
           </div>
-          <div class="info-block fade-in">
-            <div class="info-icon">🕐</div>
+          <div class="flex gap-4">
+            <div class="w-12 h-12 bg-secondary-container/20 text-secondary-container rounded-xl flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined">schedule</span>
+            </div>
             <div>
-              <h3>Öffnungszeiten</h3>
-              <p class="open-247">24 / 7</p>
-              <p class="open-text">Jeden Tag. Jede Stunde.<br>Kein Feierabend – nie.</p>
+              <h5 class="font-bold text-lg mb-1">Öffnungszeiten</h5>
+              <p class="text-on-surface-variant">24 / 7 – Jeden Tag. Jede Stunde.<br>Kein Feierabend – nie.</p>
             </div>
           </div>
-          <div class="info-block fade-in">
-            <div class="info-icon">🤖</div>
+          <div class="flex gap-4">
+            <div class="w-12 h-12 bg-tertiary-container/20 text-tertiary-container rounded-xl flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined">smart_toy</span>
+            </div>
             <div>
-              <h3>Snackautomat</h3>
-              <p>Vollautomatisch. Kein Warten.<br>Einfach auswählen & genießen.</p>
+              <h5 class="font-bold text-lg mb-1">Snackautomat</h5>
+              <p class="text-on-surface-variant">Vollautomatisch. Kein Warten.<br>Einfach auswählen &amp; genießen.</p>
             </div>
           </div>
-          <a href="https://maps.google.com/?q=Neutorstraße+2,+26723+Emden" target="_blank" rel="noopener noreferrer" class="btn-primary">
-            In Google Maps öffnen
-          </a>
         </div>
-        <div class="map-container fade-in">
-          <iframe
-            src="https://www.openstreetmap.org/export/embed.html?bbox=7.195,53.360,7.225,53.378&layer=mapnik&marker=53.3693,7.2082"
-            width="100%"
-            height="380"
-            frameborder="0"
-            title="Karte: SPÄTi am Delft, Neutorstraße 2, Emden"
-            loading="lazy"
-            allowfullscreen
-          ></iframe>
-          <small>
-            <a href="https://www.openstreetmap.org/?mlat=53.3693&mlon=7.2082#map=16/53.3693/7.2082" target="_blank" rel="noopener">Größere Karte anzeigen</a>
-          </small>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== INSTAGRAM ===== -->
-  <section id="instagram">
-    <div class="container">
-      <h2 class="section-title">Folg uns auf <span class="highlight-purple">Instagram</span></h2>
-      <p class="section-subtitle">Neue Produkte, Aktionen und Kiosk-Vibes – alles auf unserem Kanal.</p>
-      <div class="instagram-box fade-in">
-        <div class="ig-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="white" width="60" height="60"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        </div>
-        <div class="ig-text">
-          <p class="ig-handle">@spaeti_amdelft</p>
-          <p class="ig-desc">Neue Produkte, Aktionen &amp; Kiosk-Vibes</p>
-        </div>
-        <a href="https://www.instagram.com/spaeti_amdelft/" target="_blank" rel="noopener noreferrer" class="btn-instagram">
-          Jetzt folgen
+        <a href="https://maps.google.com/?q=Neutorstraße+2,+26723+Emden" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-surface-container-high border border-outline-variant px-8 py-4 rounded-2xl hover:bg-surface-container-highest transition-colors">
+          <span class="material-symbols-outlined">map</span> In Google Maps öffnen
         </a>
       </div>
+      <div class="rounded-3xl overflow-hidden border border-primary-container/20 shadow-[0_0_30px_rgba(255,85,69,0.1)]" style="height:400px">
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=7.195,53.360,7.225,53.378&layer=mapnik&marker=53.3693,7.2082"
+          width="100%" height="100%" frameborder="0"
+          title="Karte: SPÄTi am Delft, Neutorstraße 2, Emden"
+          loading="lazy" allowfullscreen
+          style="display:block">
+        </iframe>
+      </div>
     </div>
   </section>
 
-  <!-- ===== KONTAKT ===== -->
-  <section id="kontakt">
-    <div class="container">
-      <h2 class="section-title">Was denkst du? <span class="highlight-gold">Sag's uns!</span></h2>
-      <p class="section-subtitle">Feedback, Produktwünsche oder einfach Hallo – wir freuen uns!</p>
-      <form class="contact-form fade-in" id="contactForm" novalidate>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Dein Name</label>
-            <input type="text" id="name" name="name" placeholder="Max Mustermann" required autocomplete="name">
-          </div>
-          <div class="form-group">
-            <label for="email">E-Mail <span class="optional">(optional)</span></label>
-            <input type="email" id="email" name="email" placeholder="max@beispiel.de" autocomplete="email">
+  <!-- ===== SOCIAL & KONTAKT ===== -->
+  <section class="py-20 px-6" id="kontakt">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Instagram -->
+      <div class="glass-card p-10 rounded-[2.5rem] flex flex-col justify-center items-center text-center">
+        <div class="w-24 h-24 rounded-full p-1 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 mb-6">
+          <div class="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
+            <img src="logo.png" alt="SPÄTi am Delft" class="w-3/4 object-contain">
           </div>
         </div>
-        <div class="form-group">
-          <label for="subject">Betreff</label>
-          <select id="subject" name="subject">
+        <h3 class="font-headline-lg text-headline-lg mb-2">@spaeti_amdelft</h3>
+        <p class="text-on-surface-variant mb-8">Folge uns für neue Produkte, Aktionen und Kiosk-Vibes!</p>
+        <a href="https://www.instagram.com/spaeti_amdelft/" target="_blank" rel="noopener noreferrer"
+           class="bg-[#E1306C] text-white px-10 py-4 rounded-2xl font-headline-md flex items-center gap-2 hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined">photo_camera</span> Jetzt folgen
+        </a>
+      </div>
+
+      <!-- Kontaktformular -->
+      <div class="glass-card p-10 rounded-[2.5rem]">
+        <h3 class="font-headline-lg text-headline-lg mb-2">Was denkst du? <span class="text-secondary-container">Sag's uns!</span></h3>
+        <p class="text-on-surface-variant mb-8 text-sm">Feedback, Wünsche oder einfach Hallo – wir freuen uns!</p>
+        <form class="space-y-5" id="contactForm" novalidate>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input type="text" id="name" placeholder="Dein Name" required autocomplete="name"
+              class="bg-surface-container-high border-0 border-b-2 border-outline-variant focus:border-primary-container focus:ring-0 text-on-surface placeholder:text-on-surface-variant/40 rounded-t-lg px-4 py-3 transition-colors">
+            <input type="email" id="email" placeholder="E-Mail (optional)" autocomplete="email"
+              class="bg-surface-container-high border-0 border-b-2 border-outline-variant focus:border-primary-container focus:ring-0 text-on-surface placeholder:text-on-surface-variant/40 rounded-t-lg px-4 py-3 transition-colors">
+          </div>
+          <select id="subject" class="w-full bg-surface-container-high border-0 border-b-2 border-outline-variant focus:border-primary-container focus:ring-0 text-on-surface rounded-t-lg px-4 py-3 transition-colors">
             <option value="">Worum geht's?</option>
             <option value="feedback">Allgemeines Feedback</option>
-            <option value="produkt">Produktwunsch</option>
+            <option value="wunsch">Produktwunsch</option>
             <option value="problem">Problem melden</option>
             <option value="lob">Lob &amp; Bewertung</option>
-            <option value="sonstiges">Sonstiges</option>
           </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Deine Nachricht</label>
-          <textarea id="message" name="message" rows="5" placeholder="Welche Produkte fehlen noch? Was läuft super? Wir hören zu!" required></textarea>
-        </div>
-        <p class="form-privacy">Mit dem Absenden stimmst du der Verarbeitung deiner Daten zur Bearbeitung deiner Anfrage zu. Weitere Infos in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
-        <button type="submit" class="btn-primary btn-submit">Abschicken 🚀</button>
-        <p class="form-success" id="formSuccess" role="alert">Danke für dein Feedback! Wir haben's bekommen. 🙏</p>
-        <p class="form-error" id="formError" role="alert">Bitte füll alle Pflichtfelder aus.</p>
-      </form>
+          <textarea id="message" rows="4" placeholder="Deine Nachricht..." required
+            class="w-full bg-surface-container-high border-0 border-b-2 border-outline-variant focus:border-primary-container focus:ring-0 text-on-surface placeholder:text-on-surface-variant/40 rounded-t-lg px-4 py-3 transition-colors resize-y"></textarea>
+          <p class="text-xs text-on-surface-variant/60 leading-relaxed">
+            Mit dem Absenden stimmst du der Verarbeitung deiner Daten zu. Infos in unserer
+            <a href="datenschutz.html" class="underline hover:text-primary-container">Datenschutzerklärung</a>.
+          </p>
+          <button type="submit" class="w-full bg-primary-container text-on-primary-container font-headline-md py-4 rounded-xl flex items-center justify-center gap-2 hover:shadow-[0_0_20px_rgba(255,85,69,0.3)] transition-all">
+            Abschicken 🚀
+          </button>
+          <p id="formSuccess" role="alert" class="hidden text-center font-bold text-sm py-3 px-4 rounded-xl" style="color:#4ade80;background:rgba(74,222,128,0.1)">Danke! Wir haben deine Nachricht bekommen. 🙏</p>
+          <p id="formError"   role="alert" class="hidden text-center font-bold text-sm py-3 px-4 rounded-xl" style="color:#f87171;background:rgba(248,113,113,0.1)">Bitte füll Name und Nachricht aus.</p>
+        </form>
+      </div>
+
     </div>
   </section>
 
   <!-- ===== FOOTER ===== -->
-  <footer>
-    <div class="container">
-      <div class="footer-logo">
-        <span class="logo-s">S</span><span class="logo-p">P</span><span class="logo-ae">Ä</span><span class="logo-t">T</span><span class="logo-i">i</span>
-        <span class="footer-logo-text">am Delft</span>
+  <footer class="py-20 px-6 bg-surface-container-lowest border-t border-outline-variant/20">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      <div class="space-y-4">
+        <img src="logo.png" alt="SPÄTi am Delft" class="h-12 w-auto">
+        <p class="text-on-surface-variant text-body-md">Neutorstraße 2 · 26723 Emden<br>24/7 Geöffnet.</p>
       </div>
-      <p class="footer-address">Neutorstraße 2 · 26723 Emden · 24/7</p>
-      <nav class="footer-links" aria-label="Footer Navigation">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-        <a href="https://www.instagram.com/spaeti_amdelft/" target="_blank" rel="noopener">Instagram</a>
-      </nav>
-      <p class="footer-copy">© 2025 SPÄTi am Delft · Gemacht mit ❤️ in Emden</p>
+      <div class="flex flex-col gap-3">
+        <h5 class="font-bold text-on-surface mb-1">Navigation</h5>
+        <a href="#sortiment"  class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary-container transition-colors uppercase tracking-widest">Sortiment</a>
+        <a href="#anleitung"  class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary-container transition-colors uppercase tracking-widest">Anleitung</a>
+        <a href="#faq"        class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary-container transition-colors uppercase tracking-widest">FAQ</a>
+        <a href="#vermietung" class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary-container transition-colors uppercase tracking-widest">Vermietung</a>
+        <a href="#standort"   class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary-container transition-colors uppercase tracking-widest">Standort</a>
+      </div>
+      <div class="flex flex-col gap-3">
+        <h5 class="font-bold text-on-surface mb-1">Rechtliches</h5>
+        <a href="impressum.html"   class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary-container transition-colors uppercase tracking-widest">Impressum</a>
+        <a href="datenschutz.html" class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary-container transition-colors uppercase tracking-widest">Datenschutz</a>
+        <div class="mt-4">
+          <a href="https://www.instagram.com/spaeti_amdelft/" target="_blank" rel="noopener noreferrer"
+             class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary-container transition-colors inline-flex">
+            <span class="material-symbols-outlined text-sm">photo_camera</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center text-label-sm font-label-sm text-on-surface-variant/40">
+      © 2025 SPÄTi am Delft · Mazlum &amp; Eyüp GbR · Gemacht mit ❤️ in Emden
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- FAB: Instagram -->
+  <a href="https://www.instagram.com/spaeti_amdelft/" target="_blank" rel="noopener noreferrer"
+     class="fixed bottom-8 right-8 w-16 h-16 rounded-2xl shadow-2xl flex items-center justify-center z-50 hover:scale-110 active:scale-95 transition-all"
+     style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)"
+     aria-label="Instagram">
+    <span class="material-symbols-outlined text-white">photo_camera</span>
+  </a>
+
+  <script>
+    // Contact form
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name    = document.getElementById('name').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const success = document.getElementById('formSuccess');
+      const error   = document.getElementById('formError');
+      success.classList.add('hidden');
+      error.classList.add('hidden');
+      if (!name || !message) { error.classList.remove('hidden'); return; }
+      const btn = this.querySelector('button[type=submit]');
+      btn.textContent = 'Wird gesendet…';
+      btn.disabled = true;
+      setTimeout(() => {
+        this.reset();
+        btn.textContent = 'Abschicken 🚀';
+        btn.disabled = false;
+        success.classList.remove('hidden');
+        setTimeout(() => success.classList.add('hidden'), 6000);
+      }, 800);
+    });
+  </script>
+
 </body>
 </html>
