@@ -458,7 +458,16 @@
           <span class="material-symbols-outlined">map</span> In Google Maps öffnen
         </a>
       </div>
-      <div class="rounded-3xl overflow-hidden border border-primary-container/20 shadow-[0_0_30px_rgba(255,85,69,0.1)]" style="height:400px">
+      <div class="relative rounded-3xl overflow-hidden border border-primary-container/20 shadow-[0_0_30px_rgba(255,85,69,0.1)]" style="height:400px">
+        <!-- Floating store name badge -->
+        <div class="absolute top-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-3 bg-background/90 backdrop-blur-md border border-primary-container/40 px-5 py-3 rounded-2xl shadow-lg pointer-events-none">
+          <img src="logo.png" alt="SPÄTi am Delft" class="h-7 w-auto drop-shadow-[0_0_8px_rgba(255,85,69,0.5)]">
+          <div>
+            <p class="font-bold text-sm text-on-surface leading-tight">SPÄTi am Delft</p>
+            <p class="text-xs text-on-surface-variant leading-tight">Neutorstraße 2 · 26723 Emden</p>
+          </div>
+          <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse shrink-0"></span>
+        </div>
         <iframe
           src="https://www.openstreetmap.org/export/embed.html?bbox=7.192,53.357,7.222,53.376&layer=mapnik&marker=53.3664,7.2067"
           width="100%" height="100%" frameborder="0"
